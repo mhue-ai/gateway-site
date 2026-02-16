@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="fr" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClawPurse Gateway — HTTP 402 Payment Required Micropayment Gateway for AI Agents & APIs</title>
-  <meta name="description" content="Open-source HTTP 402 Payment Required reverse proxy that gates any API behind NTMPI blockchain micropayments. Pay-per-request and prepaid balance flows for agentic AI, machine-to-machine commerce, and DePIN automation on Neutaro.">
+  <title>ClawPurse Gateway — Passerelle de micropaiements HTTP 402 pour agents IA et APIs</title>
+  <meta name="description" content="Proxy inverse HTTP 402 open source protégeant toute API avec des micropaiements NTMPI sur blockchain Neutaro.">
   <meta name="keywords" content="HTTP 402, Payment Required, micropayment gateway, API monetization, pay-per-request, NTMPI, Neutaro, blockchain payments, agentic AI, machine-to-machine payments, DePIN, x402 protocol, AI agent commerce, reverse proxy, ClawPurse, Timpi, crypto micropayments, API paywall, on-chain verification">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://gateway.clawpurse.ai/">
+  <link rel="canonical" href="https://gateway.clawpurse.ai/fr/">
   <link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/" />
   <link rel="alternate" hreflang="ja" href="https://gateway.clawpurse.ai/ja/" />
   <link rel="alternate" hreflang="ko" href="https://gateway.clawpurse.ai/ko/" />
@@ -17,15 +17,15 @@
   <link rel="alternate" hreflang="zh" href="https://gateway.clawpurse.ai/zh/" />
   <link rel="alternate" hreflang="id" href="https://gateway.clawpurse.ai/id/" />
   <link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/" />
-  <meta property="og:title" content="ClawPurse Gateway — HTTP 402 Micropayment Gateway for AI Agents">
-  <meta property="og:description" content="Open-source reverse proxy gating any API behind on-chain NTMPI micropayments. Pay-per-request and prepaid balance flows for AI agents, scripts, and machine-to-machine workloads on Neutaro.">
+  <meta property="og:title" content="ClawPurse Gateway — Passerelle de micropaiements HTTP 402 pour agents IA">
+  <meta property="og:description" content="Proxy inverse open source protégeant toute API avec des micropaiements NTMPI on-chain.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gateway.clawpurse.ai/">
+  <meta property="og:url" content="https://gateway.clawpurse.ai/fr/">
   <meta property="og:site_name" content="ClawPurse Gateway">
   <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="ClawPurse Gateway — HTTP 402 Micropayment Gateway for AI Agents">
-  <meta name="twitter:description" content="Open-source reverse proxy gating any API behind on-chain NTMPI micropayments. Built for agentic AI and machine-to-machine commerce on Neutaro.">
+  <meta name="twitter:title" content="ClawPurse Gateway — Passerelle de micropaiements HTTP 402 pour agents IA">
+  <meta name="twitter:description" content="Proxy inverse open source. Conçu pour IA agentique et commerce machine-à-machine sur Neutaro.">
   <meta name="author" content="Mhue">
   <meta name="generator" content="ClawPurse">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -409,30 +409,30 @@
 
   <!-- ============ HERO ============ -->
   <header class="hero container">
-    <a href="#main-content" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
+    <a href="#main-content" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Aller au contenu principal</a>
     <div class="hero__badge" role="status" aria-label="Version status">
       <span class="dot" aria-hidden="true"></span>
-      v0.2.0 — open source on GitHub
+      v0.2.0 — open source sur GitHub
     </div>
     <h1>ClawPurse<br><span class="hl-402">402 Gateway</span></h1>
     <p class="hero__sub">
-      An HTTP reverse proxy that gates any API behind <strong>NTMPI micropayments</strong> on the Neutaro blockchain. Pay-per-request and prepaid balance flows for AI&nbsp;agents, automation scripts, and machine&#8209;to&#8209;machine commerce.
+      Un proxy inverse HTTP qui protège toute API avec des <strong>micropaiements NTMPI</strong> sur la blockchain Neutaro. Flux de paiement par requête et solde prépayé pour agents IA, scripts et commerce machine-à-machine.
     </p>
     <nav class="hero__actions" aria-label="Primary actions">
       <a class="btn btn--primary" href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
         View on GitHub
       </a>
-      <a class="btn btn--ghost" href="https://github.com/mhue-ai/clawpurse-gateway/blob/master/README.md" target="_blank" rel="noopener">Read the Docs</a>
-      <a class="btn btn--mint" href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">ClawPurse Wallet</a>
-      <a class="btn btn--ghost" href="https://drip.clawpurse.ai" target="_blank" rel="noopener">Timpi Drip Faucet</a>
+      <a class="btn btn--ghost" href="https://github.com/mhue-ai/clawpurse-gateway/blob/master/README.md" target="_blank" rel="noopener">Lire la documentation</a>
+      <a class="btn btn--mint" href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">Portefeuille ClawPurse</a>
+      <a class="btn btn--ghost" href="https://drip.clawpurse.ai" target="_blank" rel="noopener">Faucet Timpi Drip</a>
     </nav>
-    <div style="position:fixed;top:16px;right:16px;z-index:100;"><select id="langSwitcher" aria-label="Language" onchange="window.location.href=this.value">
-            <option value="/" selected>English</option>
+    <div style="position:fixed;top:16px;right:16px;z-index:100;"><select id="langSwitcher" aria-label="Langue" onchange="window.location.href=this.value">
+            <option value="/">English</option>
             <option value="/ja/">日本語</option>
             <option value="/ko/">한국어</option>
             <option value="/es/">Español</option>
-            <option value="/fr/">Français</option>
+            <option value="/fr/" selected>Français</option>
             <option value="/hi/">हिन्दी</option>
             <option value="/zh/">中文</option>
             <option value="/id/">Bahasa Indonesia</option>
@@ -440,24 +440,24 @@
   </header>
 
   <!-- ============ FLOW DIAGRAM ============ -->
-  <div class="flow container reveal" role="figure" aria-label="HTTP 402 payment flow diagram showing how a client, gateway, and blockchain interact">
+  <div class="flow container reveal" role="figure" aria-label="Diagramme du flux de paiement HTTP 402">
     <div class="flow__box">
-<pre><span class="c-dim">  Client (AI agent, script, browser)</span>
+<pre><span class="c-dim">  Client (agent IA, script, navigateur)</span>
     │
-    ├── <span class="c-mint">GET /api/data</span> ─────────────────────▶  <span class="c-402">402 Gateway</span>
+    ├── <span class="c-mint">GET /api/data</span> ─────────────────────▶  <span class="c-402">Passerelle 402</span>
     │                                              │
     │   ◀── <span class="c-402">402 Payment Required</span> ────────────────┘
     │       <span class="c-gold">{ invoiceId, amount, address, memo }</span>
     │
     ├── <span class="c-mint">clawpurse send</span> &lt;address&gt; &lt;amount&gt; --memo &lt;memo&gt; --yes
-    │       <span class="c-dim">(on-chain NTMPI payment)</span>
+    │       <span class="c-dim">(paiement NTMPI on-chain)</span>
     │
-    ├── <span class="c-mint">GET /api/data</span> ─────────────────────▶  <span class="c-402">402 Gateway</span>
+    ├── <span class="c-mint">GET /api/data</span> ─────────────────────▶  <span class="c-402">Passerelle 402</span>
     │   Header: <span class="c-gold">X-Payment-Proof: &lt;invoiceId&gt;</span>     │
     │                                              │
-    │   <span class="c-dim">Gateway verifies payment on Neutaro</span>    │
+    │   <span class="c-dim">La passerelle vérifie le paiement sur Neutaro</span>    │
     │                                              │
-    │   ◀── <span class="c-mint">200 OK</span> <span class="c-dim">(proxied from upstream)</span> ────┘</pre>
+    │   ◀── <span class="c-mint">200 OK</span> <span class="c-dim">(proxy depuis upstream)</span> ────┘</pre>
     </div>
   </div>
 
@@ -465,24 +465,24 @@
 
     <!-- ============ PAYMENT FLOWS ============ -->
     <section class="section reveal" id="payment-flows">
-      <span class="tag tag--402">Payment Flows</span>
-      <h2 class="section__title">Two micropayment flows: pay-per-request and prepaid balance</h2>
+      <span class="tag tag--402">Flux de paiement</span>
+      <h2 class="section__title">Deux flux de micropaiement : paiement par requête et solde prépayé</h2>
       <p class="section__desc">
-        Whether your agent pays per call or pre-funds a balance, the gateway handles invoice creation, on-chain verification, and upstream proxying automatically.
+        Que votre agent paie par appel ou pré-finance un solde, la passerelle gère automatiquement la facturation, la vérification on-chain et le proxy.
       </p>
       <div class="split">
         <div class="fcard">
           <div class="fcard__icon fcard__icon--red">1</div>
-          <h3>Pay-per-request</h3>
+          <h3>Paiement par requête</h3>
           <p>
-            Client hits a gated endpoint and receives a <strong>402</strong> with an invoice. It pays on-chain, then retries with an <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Payment-Proof</code> header. The gateway verifies the transaction on Neutaro and proxies the request upstream.
+            Le client accède à un endpoint protégé et reçoit un <strong>402</strong> avec une facture. Il paie on-chain puis réessaie avec un en-tête <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Payment-Proof</code>. La passerelle vérifie et redirige.
           </p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--mint">2</div>
-          <h3>Prepaid balance</h3>
+          <h3>Solde prépayé</h3>
           <p>
-            Client deposits NTMPI once via <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">/prepaid/deposit</code>. Subsequent requests include an <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Client-Id</code> header and the gateway deducts from the balance per call &mdash; no repeated on-chain transactions.
+            Le client dépose des NTMPI une fois via <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">/prepaid/deposit</code>. Les requêtes suivantes incluent un en-tête <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Client-Id</code> et la passerelle déduit par appel — pas de transactions on-chain répétées.
           </p>
         </div>
       </div>
@@ -490,41 +490,41 @@
 
     <!-- ============ FEATURES ============ -->
     <section class="section reveal" id="features">
-      <span class="tag tag--mint">Capabilities</span>
-      <h2 class="section__title">Built for AI agents and machine-to-machine commerce</h2>
+      <span class="tag tag--mint">Fonctionnalités</span>
+      <h2 class="section__title">Conçu pour les agents IA et le commerce machine-à-machine</h2>
       <p class="section__desc">
-        Everything a machine-to-machine micropayment layer needs, nothing it doesn't.
+        Tout ce dont une couche de micropaiements a besoin, rien de plus.
       </p>
       <div class="features">
         <div class="fcard">
           <div class="fcard__icon fcard__icon--red">&#x26A1;</div>
-          <h3>On-chain verification</h3>
-          <p>Queries Neutaro REST API to confirm payment amount, memo, and block confirmations before allowing access.</p>
+          <h3>Vérification on-chain</h3>
+          <p>Interroge Neutaro REST API pour confirmer montant, mémo et confirmations de bloc.</p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--mint">&#x1F9FE;</div>
-          <h3>Route-level pricing</h3>
-          <p>Set a default price and override per-route with <code style="font-size:0.8rem; background:var(--bg-elevated); padding:1px 5px; border-radius:4px;">GATEWAY_ROUTES</code>. Cheap reads, expensive writes.</p>
+          <h3>Tarification par route</h3>
+          <p>Prix par défaut avec surcharge par route via <code style="font-size:0.8rem; background:var(--bg-elevated); padding:1px 5px; border-radius:4px;">GATEWAY_ROUTES</code>. Lectures bon marché, écritures coûteuses.</p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--gold">&#x1F512;</div>
-          <h3>Management API</h3>
-          <p>JWT-protected endpoints for internal wallets, transactions, and a lightweight blockchain ledger.</p>
+          <h3>API de gestion</h3>
+          <p>Endpoints protégés par JWT pour portefeuilles internes, transactions et registre blockchain léger.</p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--red">&#x1F504;</div>
-          <h3>Reverse proxy</h3>
-          <p>Transparently forwards authenticated requests to your upstream API. Any backend, any language.</p>
+          <h3>Proxy inverse</h3>
+          <p>Transfère les requêtes authentifiées vers votre API upstream. Tout backend, tout langage.</p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--mint">&#x1F4E6;</div>
-          <h3>SQLite storage</h3>
-          <p>Invoices, prepaid balances, and payment logs stored locally in a single file. Zero external dependencies.</p>
+          <h3>Stockage SQLite</h3>
+          <p>Factures, soldes et journaux dans un seul fichier local. Zéro dépendance externe.</p>
         </div>
         <div class="fcard">
           <div class="fcard__icon fcard__icon--gold">&#x1F433;</div>
-          <h3>Docker-ready</h3>
-          <p>One-command deploy with <code style="font-size:0.8rem; background:var(--bg-elevated); padding:1px 5px; border-radius:4px;">docker compose up</code>. Ubuntu deploy script included for bare metal.</p>
+          <h3>Prêt pour Docker</h3>
+          <p>Déploiement avec <code style="font-size:0.8rem; background:var(--bg-elevated); padding:1px 5px; border-radius:4px;">docker compose up</code>. Script Ubuntu inclus.</p>
         </div>
       </div>
     </section>
@@ -532,66 +532,66 @@
     <!-- ============ API ENDPOINTS ============ -->
     <section class="section reveal" id="api">
       <span class="tag tag--gold">API</span>
-      <h2 class="section__title">Gateway API endpoint reference</h2>
+      <h2 class="section__title">Référence des endpoints de la passerelle</h2>
       <p class="section__desc">
-        Free endpoints for health checks, invoice lookups, and balance queries. Everything else goes through the 402 gate.
+        Endpoints gratuits pour health checks, consultations de factures et soldes. Tout le reste passe par le gate 402.
       </p>
 
       <div style="display: flex; flex-direction: column; gap: 24px;">
         <div class="api-table-wrap">
-          <h3>Free — no payment required</h3>
+          <h3>Gratuit — sans paiement</h3>
           <table>
-            <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+            <thead><tr><th>Méthode</th><th>Chemin</th><th>Description</th></tr></thead>
             <tbody>
               <tr>
                 <td><span class="method method--get">GET</span></td>
                 <td class="path-cell">/health</td>
-                <td class="desc-cell">Health check with gateway config</td>
+                <td class="desc-cell">Health check avec config passerelle</td>
               </tr>
               <tr>
                 <td><span class="method method--get">GET</span></td>
                 <td class="path-cell">/invoices/:id</td>
-                <td class="desc-cell">Check invoice status (triggers on-chain verification)</td>
+                <td class="desc-cell">Vérifier le statut de facture (déclenche vérification on-chain)</td>
               </tr>
               <tr>
                 <td><span class="method method--post">POST</span></td>
                 <td class="path-cell">/prepaid/deposit</td>
-                <td class="desc-cell">Register a deposit (verifies tx on-chain first)</td>
+                <td class="desc-cell">Enregistrer un dépôt (vérifie tx on-chain)</td>
               </tr>
               <tr>
                 <td><span class="method method--get">GET</span></td>
                 <td class="path-cell">/prepaid/balance/:clientId</td>
-                <td class="desc-cell">Check prepaid balance</td>
+                <td class="desc-cell">Vérifier le solde prépayé</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <div class="api-table-wrap">
-          <h3>Management — JWT protected</h3>
+          <h3>Gestion — protégé par JWT</h3>
           <table>
-            <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+            <thead><tr><th>Méthode</th><th>Chemin</th><th>Description</th></tr></thead>
             <tbody>
-              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/auth/register</td><td class="desc-cell">Register admin account</td></tr>
-              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/auth/login</td><td class="desc-cell">Login, get JWT token</td></tr>
-              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/wallet</td><td class="desc-cell">Create internal wallet</td></tr>
-              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/wallet</td><td class="desc-cell">List your wallets</td></tr>
-              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/wallet/:id</td><td class="desc-cell">Get wallet by ID</td></tr>
-              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/transactions</td><td class="desc-cell">Create internal transaction</td></tr>
-              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/transactions/:id</td><td class="desc-cell">Get transaction by ID</td></tr>
+              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/auth/register</td><td class="desc-cell">Créer un compte administrateur</td></tr>
+              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/auth/login</td><td class="desc-cell">Se connecter, obtenir token JWT</td></tr>
+              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/wallet</td><td class="desc-cell">Créer un portefeuille interne</td></tr>
+              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/wallet</td><td class="desc-cell">Lister vos portefeuilles</td></tr>
+              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/wallet/:id</td><td class="desc-cell">Obtenir portefeuille par ID</td></tr>
+              <tr><td><span class="method method--post">POST</span></td><td class="path-cell">/manage/transactions</td><td class="desc-cell">Créer une transaction interne</td></tr>
+              <tr><td><span class="method method--get">GET</span></td><td class="path-cell">/manage/transactions/:id</td><td class="desc-cell">Obtenir transaction par ID</td></tr>
             </tbody>
           </table>
         </div>
 
         <div class="api-table-wrap">
-          <h3>402 Gate — catch-all</h3>
+          <h3>Gate 402 — catch-all</h3>
           <table>
-            <thead><tr><th>Method</th><th>Path</th><th>Description</th></tr></thead>
+            <thead><tr><th>Méthode</th><th>Chemin</th><th>Description</th></tr></thead>
             <tbody>
               <tr>
                 <td><span class="method method--any">ANY</span></td>
                 <td class="path-cell">/*</td>
-                <td class="desc-cell">All other requests require payment or prepaid balance</td>
+                <td class="desc-cell">Toutes les autres requêtes nécessitent paiement ou solde prépayé</td>
               </tr>
             </tbody>
           </table>
@@ -601,10 +601,10 @@
 
     <!-- ============ AGENT INTEGRATION ============ -->
     <section class="section reveal" id="integration">
-      <span class="tag tag--402">Integration</span>
-      <h2 class="section__title">Agent integration: Python and TypeScript examples</h2>
+      <span class="tag tag--402">Intégration</span>
+      <h2 class="section__title">Intégration agents : exemples Python et TypeScript</h2>
       <p class="section__desc">
-        Wire the 402 flow into any agent in a few lines. The gateway handles invoicing and verification — your code just needs to pay and retry.
+        Intégrez le flux 402 en quelques lignes. La passerelle gère facturation et vérification — votre code paie et réessaie.
       </p>
       <div class="split">
         <div class="code-card">
@@ -677,8 +677,8 @@ data = res.<span class="fn">json</span>()</pre>
 
     <!-- ============ QUICK START ============ -->
     <section class="section reveal" id="quick-start">
-      <span class="tag tag--mint">Quick Start</span>
-      <h2 class="section__title">Install and run the gateway in under a minute</h2>
+      <span class="tag tag--mint">Démarrage rapide</span>
+      <h2 class="section__title">Installez et lancez la passerelle en moins d'une minute</h2>
       <div class="code-card" style="max-width: 680px;">
         <div class="code-card__header">
           <span class="code-card__dot" style="background:#ff5f57;"></span>
@@ -711,46 +711,46 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
     <!-- ============ ARCHITECTURE ============ -->
     <section class="section reveal" id="architecture">
       <span class="tag tag--gold">Architecture</span>
-      <h2 class="section__title">TypeScript microservice architecture</h2>
+      <h2 class="section__title">Architecture microservices TypeScript</h2>
       <p class="section__desc">
-        A focused TypeScript codebase — gateway logic, four internal services, and middleware. 46 unit tests cover every layer.
+        Codebase TypeScript ciblé — logique passerelle, quatre services internes et middleware. 46 tests unitaires couvrent chaque couche.
       </p>
       <div class="arch-cards">
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-402);">config.ts</div>
-          <div class="acard__desc">Env-driven gateway config</div>
+          <div class="acard__desc">Config passerelle par env</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-mint);">db.ts</div>
-          <div class="acard__desc">SQLite: invoices, prepaid, logs</div>
+          <div class="acard__desc">SQLite : factures, prépayé, logs</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-gold);">invoice.ts</div>
-          <div class="acard__desc">Invoice creation & route pricing</div>
+          <div class="acard__desc">Création de factures et tarification</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-402);">verify.ts</div>
-          <div class="acard__desc">On-chain payment verification</div>
+          <div class="acard__desc">Vérification paiement on-chain</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-mint);">proxy.ts</div>
-          <div class="acard__desc">Reverse proxy to upstream</div>
+          <div class="acard__desc">Proxy inverse vers upstream</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-gold);">AuthService</div>
-          <div class="acard__desc">JWT auth for management API</div>
+          <div class="acard__desc">Auth JWT pour API de gestion</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-402);">WalletService</div>
-          <div class="acard__desc">Internal wallet ledger</div>
+          <div class="acard__desc">Registre portefeuilles internes</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-mint);">TxService</div>
-          <div class="acard__desc">Wallet-to-wallet transfers</div>
+          <div class="acard__desc">Transferts entre portefeuilles</div>
         </div>
         <div class="acard">
           <div class="acard__name" style="color:var(--accent-gold);">BlockchainSvc</div>
-          <div class="acard__desc">Internal block chain</div>
+          <div class="acard__desc">Blockchain interne</div>
         </div>
       </div>
     </section>
@@ -758,23 +758,23 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
     <!-- ============ CONFIGURATION ============ -->
     <section class="section reveal" id="configuration">
       <span class="tag tag--402">Config</span>
-      <h2 class="section__title">Gateway configuration via environment variables</h2>
-      <p class="section__desc">All settings via env vars or <code style="font-size:0.9rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">.env</code> file.</p>
+      <h2 class="section__title">Configuration de la passerelle via variables d'environnement</h2>
+      <p class="section__desc">Tous les paramètres via env vars ou fichier <code style="font-size:0.9rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">.env</code>.</p>
       <div class="config-table-wrap">
         <table>
-          <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
+          <thead><tr><th>Variable</th><th>Défaut</th><th>Description</th></tr></thead>
           <tbody>
-            <tr><td>PORT</td><td>4020</td><td class="desc-cell">Gateway listen port</td></tr>
-            <tr><td>GATEWAY_UPSTREAM</td><td>http://localhost:3000</td><td class="desc-cell">Upstream API to proxy</td></tr>
-            <tr><td>GATEWAY_PAYMENT_ADDRESS</td><td>&mdash;</td><td class="desc-cell">Your Neutaro wallet address (required)</td></tr>
-            <tr><td>GATEWAY_DEFAULT_PRICE</td><td>0.001</td><td class="desc-cell">Default price per request in NTMPI</td></tr>
-            <tr><td>GATEWAY_ROUTES</td><td>&mdash;</td><td class="desc-cell">Route pricing overrides</td></tr>
-            <tr><td>GATEWAY_REST</td><td>https://api2.neutaro.io</td><td class="desc-cell">Neutaro REST API endpoint</td></tr>
-            <tr><td>GATEWAY_MIN_CONFIRMATIONS</td><td>1</td><td class="desc-cell">Block confirmations required</td></tr>
-            <tr><td>GATEWAY_INVOICE_TTL</td><td>300</td><td class="desc-cell">Invoice validity in seconds</td></tr>
-            <tr><td>GATEWAY_PREPAID</td><td>false</td><td class="desc-cell">Enable prepaid balance system</td></tr>
-            <tr><td>GATEWAY_DB</td><td>./gateway.db</td><td class="desc-cell">SQLite database path</td></tr>
-            <tr><td>JWT_SECRET</td><td>&mdash;</td><td class="desc-cell">Secret for management API JWT (required)</td></tr>
+            <tr><td>PORT</td><td>4020</td><td class="desc-cell">Port d'écoute de la passerelle</td></tr>
+            <tr><td>GATEWAY_UPSTREAM</td><td>http://localhost:3000</td><td class="desc-cell">API upstream à proxifier</td></tr>
+            <tr><td>GATEWAY_PAYMENT_ADDRESS</td><td>&mdash;</td><td class="desc-cell">Adresse portefeuille Neutaro (requis)</td></tr>
+            <tr><td>GATEWAY_DEFAULT_PRICE</td><td>0.001</td><td class="desc-cell">Prix par défaut par requête en NTMPI</td></tr>
+            <tr><td>GATEWAY_ROUTES</td><td>&mdash;</td><td class="desc-cell">Surcharges prix par route</td></tr>
+            <tr><td>GATEWAY_REST</td><td>https://api2.neutaro.io</td><td class="desc-cell">Endpoint API REST Neutaro</td></tr>
+            <tr><td>GATEWAY_MIN_CONFIRMATIONS</td><td>1</td><td class="desc-cell">Confirmations de bloc requises</td></tr>
+            <tr><td>GATEWAY_INVOICE_TTL</td><td>300</td><td class="desc-cell">Validité facture en secondes</td></tr>
+            <tr><td>GATEWAY_PREPAID</td><td>false</td><td class="desc-cell">Activer système solde prépayé</td></tr>
+            <tr><td>GATEWAY_DB</td><td>./gateway.db</td><td class="desc-cell">Chemin base de données SQLite</td></tr>
+            <tr><td>JWT_SECRET</td><td>&mdash;</td><td class="desc-cell">Secret JWT API de gestion (requis)</td></tr>
           </tbody>
         </table>
       </div>
@@ -782,34 +782,34 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
 
     <!-- ============ ECOSYSTEM ============ -->
     <section class="section reveal" id="ecosystem">
-      <span class="tag tag--mint">Ecosystem</span>
-      <h2 class="section__title">Part of the Timpi, Neutaro & ClawPurse ecosystem</h2>
+      <span class="tag tag--mint">Écosystème</span>
+      <h2 class="section__title">Partie de l'écosystème Timpi, Neutaro et ClawPurse</h2>
       <div class="eco-grid">
         <div class="eco-card">
-          <h3>ClawPurse Wallet</h3>
+          <h3>Portefeuille ClawPurse</h3>
           <p>
-            The local NTMPI wallet with encrypted keystores, guardrails, staking, and destination allowlists. The reference client for paying through the gateway.
+            Portefeuille NTMPI local avec keystores chiffrés, garde-fous, staking et listes de destinations. Client de référence pour la passerelle.
           </p>
           <p style="margin-top:12px;"><a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">github.com/mhue-ai/ClawPurse &rarr;</a></p>
         </div>
         <div class="eco-card">
-          <h3>Neutaro Blockchain</h3>
+          <h3>Blockchain Neutaro</h3>
           <p>
-            The Cosmos SDK chain powering NTMPI. All gateway payments are verified directly against Neutaro's REST API — no oracles, no bridges.
+            La chaîne Cosmos SDK alimentant NTMPI. Tous les paiements vérifiés directement contre Neutaro — sans oracles, sans ponts.
           </p>
           <p style="margin-top:12px;"><a href="https://neutaro.com" target="_blank" rel="noopener">neutaro.com &rarr;</a></p>
         </div>
         <div class="eco-card">
-          <h3>Timpi Network</h3>
+          <h3>Réseau Timpi</h3>
           <p>
-            Privacy-first decentralised search with an open Data API and DePIN nodes. ClawPurse Gateway lets you monetise any Timpi-powered service via micropayments.
+            Recherche décentralisée avec confidentialité, API de données ouverte et nœuds DePIN. Monétisez tout service Timpi via micropaiements.
           </p>
           <p style="margin-top:12px;"><a href="https://timpi.io" target="_blank" rel="noopener">timpi.io &rarr;</a></p>
         </div>
         <div class="eco-card">
-          <h3>Timpi Drip Faucet</h3>
+          <h3>Faucet Timpi Drip</h3>
           <p>
-            Agent-friendly NTMPI faucet with proof-of-work challenge instead of CAPTCHA. OpenClaw-authenticated agents get a higher throughput drip for faster onboarding.
+            Faucet NTMPI avec proof-of-work au lieu de CAPTCHA. Agents OpenClaw obtiennent un débit plus élevé.
           </p>
           <p style="margin-top:12px;"><a href="https://drip.clawpurse.ai" target="_blank" rel="noopener">drip.clawpurse.ai &rarr;</a></p>
         </div>
@@ -819,23 +819,23 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
     <!-- ============ FAQ ============ -->
     <section class="section reveal" id="faq">
       <span class="tag tag--gold">FAQ</span>
-      <h2 class="section__title">Frequently asked questions</h2>
+      <h2 class="section__title">Questions fréquentes</h2>
       <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
         <div class="fcard">
-          <h3>What is ClawPurse Gateway?</h3>
-          <p>An open-source HTTP reverse proxy that implements the <strong>402 Payment Required</strong> status code to gate any API behind NTMPI micropayments on the Neutaro blockchain. It supports pay-per-request and prepaid balance flows for AI agents, automation scripts, and machine-to-machine commerce.</p>
+          <h3>Qu'est-ce que ClawPurse Gateway ?</h3>
+          <p>Un proxy inverse HTTP open source implémentant <strong>402 Payment Required</strong> pour protéger toute API avec micropaiements NTMPI sur Neutaro.</p>
         </div>
         <div class="fcard">
-          <h3>How does the HTTP 402 payment flow work?</h3>
-          <p>A client requests a gated endpoint and receives a 402 response with an invoice containing an invoiceId, amount, address, and memo. The client pays on-chain using ClawPurse or any Neutaro wallet, then retries the request with an <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Payment-Proof</code> header. The gateway verifies the transaction on Neutaro and proxies the request upstream.</p>
+          <h3>Comment fonctionne le flux de paiement HTTP 402 ?</h3>
+          <p>Le client reçoit une réponse 402 avec facture, paie on-chain, réessaie avec en-tête <code style="font-size:0.82rem; background:var(--bg-elevated); padding:2px 6px; border-radius:4px;">X-Payment-Proof</code>. La passerelle vérifie et redirige.</p>
         </div>
         <div class="fcard">
-          <h3>What is NTMPI and how do I get it?</h3>
-          <p>NTMPI is the native token of the Neutaro blockchain, part of the <a href="https://timpi.io" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi</a> decentralised search network. You can get free NTMPI from the <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi Drip Faucet</a>, acquire it on <a href="https://www.mexc.com/exchange/NTMPI_USDT" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">MEXC</a> via the NTMPI/USDT spot pair, or bridge through Gravity Bridge to Osmosis and swap using Keplr or Leap wallet.</p>
+          <h3>Qu'est-ce que NTMPI et comment l'obtenir ?</h3>
+          <p>NTMPI est le token natif de Neutaro, partie du réseau <a href="https://timpi.io" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi</a> . Obtenez des NTMPI gratuits du <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Faucet Timpi Drip</a>, achetez sur <a href="https://www.mexc.com/exchange/NTMPI_USDT" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">MEXC</a> via NTMPI/USDT, ou pontez via Gravity Bridge vers Osmosis avec Keplr ou Leap.</p>
         </div>
         <div class="fcard">
-          <h3>Can AI agents use ClawPurse Gateway autonomously?</h3>
-          <p>Yes. The gateway is designed for agentic AI and machine-to-machine workloads. Agents can programmatically parse the 402 invoice, pay on-chain via the <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">ClawPurse wallet API</a>, and retry with the payment proof header — all without human intervention.</p>
+          <h3>Les agents IA peuvent-ils utiliser le gateway de manière autonome ?</h3>
+          <p>Oui. Conçu pour l'IA agentique. Les agents parsent la facture 402, paient on-chain via l' <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">API du portefeuille ClawPurse</a>, et réessaient — sans intervention humaine.</p>
         </div>
       </div>
     </section>
@@ -844,13 +844,13 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
     <section class="section reveal">
       <div class="donate">
         <p style="font-weight:600; font-size:1.1rem; color:var(--accent-mint); margin-bottom:4px;">
-          Buy Mhue a Timpi coffee ☕
+          Offrez un café Timpi à Mhue ☕
         </p>
         <p style="color:var(--text-2); font-size:0.92rem;">
-          If the gateway is saving your stack ops time, tip the builders.
+          Si la passerelle vous fait gagner du temps, envoyez un pourboire.
         </p>
         <code class="donate__addr">neutaro1e8xal8tqdegu4w48z3fphemd3hc07gech3pfek</code>
-        <p style="margin-top:14px; font-size:0.85rem; color:var(--text-3);">Memo optional — just let us know what you shipped!</p>
+        <p style="margin-top:14px; font-size:0.85rem; color:var(--text-3);">Mémo optionnel — dites-nous ce que vous avez lancé !</p>
       </div>
     </section>
 
@@ -860,26 +860,26 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
   <footer>
     <nav aria-label="Page sections" style="margin-bottom:20px;">
       <div class="footer-links">
-        <a href="#payment-flows">Payment Flows</a>
-        <a href="#features">Features</a>
-        <a href="#api">API Reference</a>
-        <a href="#integration">Integration</a>
-        <a href="#quick-start">Quick Start</a>
+        <a href="#payment-flows">Flux de paiement</a>
+        <a href="#features">Fonctionnalités</a>
+        <a href="#api">Référence API</a>
+        <a href="#integration">Intégration</a>
+        <a href="#quick-start">Démarrage rapide</a>
         <a href="#configuration">Configuration</a>
         <a href="#faq">FAQ</a>
       </div>
     </nav>
     <nav aria-label="External links">
       <div class="footer-links">
-        <a href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener">Gateway Repo</a>
-        <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">Wallet Repo</a>
+        <a href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener">Dépôt passerelle</a>
+        <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">Dépôt portefeuille</a>
         <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener">Timpi Drip</a>
         <a href="https://neutaro.com" target="_blank" rel="noopener">Neutaro</a>
         <a href="https://timpi.io" target="_blank" rel="noopener">Timpi</a>
-        <a href="https://explorer.neutaro.io" target="_blank" rel="noopener">Explorer</a>
+        <a href="https://explorer.neutaro.io" target="_blank" rel="noopener">Explorateur</a>
       </div>
     </nav>
-    <p>Maintained by the Mhue family &bull; ClawPurse Gateway v0.2.0 &bull; MIT License</p>
+    <p>Maintenu par la famille Mhue &bull; ClawPurse Gateway v0.2.0 &bull; Licence MIT</p>
   </footer>
 
   <script>
