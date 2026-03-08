@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ClawPurse Gateway vs x402 — प्रोटोकॉल तुलना</title>
+  <meta name="description" content="ClawPurse Gateway और Coinbase के x402 भुगतान प्रोटोकॉल की विस्तृत तुलना। आर्किटेक्चर, विश्वास मॉडल, निपटान, एजेंट एर्गोनॉमिक्स और डिप्लॉयमेंट।">
+  <meta name="keywords" content="ClawPurse Gateway, x402, Coinbase, HTTP 402, payment protocol comparison, micropayments, NTMPI, USDC, AI agent payments, facilitator, peer-to-peer payments">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gateway.clawpurse.ai/hi/compare/">
+  <meta property="og:title" content="ClawPurse Gateway vs x402 — प्रोटोकॉल तुलना">
+  <meta property="og:description" content="स्व-संप्रभु माइक्रोपेमेंट vs फैसिलिटेटर-निर्भर निपटान। एक पूर्ण आर्किटेक्चर तुलना।">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://gateway.clawpurse.ai/hi/compare/">
+  <meta property="og:site_name" content="ClawPurse Gateway">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ClawPurse Gateway vs x402 — प्रोटोकॉल तुलना">
+  <meta name="twitter:description" content="स्व-संप्रभु माइक्रोपेमेंट vs फैसिलिटेटर-निर्भर निपटान। एक पूर्ण आर्किटेक्चर तुलना।">
+  <meta name="author" content="Mhue">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-void: #020409;
+      --bg-base: #070b14;
+      --bg-card: #0c1220;
+      --bg-elevated: #111a2e;
+      --accent-402: #ff3b30;
+      --accent-402-dim: rgba(255, 59, 48, 0.15);
+      --accent-mint: #32d6a8;
+      --accent-mint-dim: rgba(50, 214, 168, 0.12);
+      --accent-gold: #fbbf24;
+      --accent-gold-dim: rgba(251, 191, 36, 0.12);
+      --text-1: #eef2ff;
+      --text-2: #8b95b0;
+      --text-3: #515c75;
+      --border-1: rgba(139, 149, 176, 0.12);
+      --border-2: rgba(139, 149, 176, 0.06);
+      --font-body: 'DM Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', 'SF Mono', 'Fira Code', monospace;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 32px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-void);
+      color: var(--text-1);
+      min-height: 100vh;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    .ambient {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 10%, rgba(255,59,48,0.06), transparent),
+        radial-gradient(ellipse 70% 50% at 85% 5%, rgba(50,214,168,0.05), transparent),
+        radial-gradient(ellipse 60% 80% at 50% 100%, rgba(251,191,36,0.03), transparent),
+        var(--bg-void);
+    }
+    .grain {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    .container { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+    .mono { font-family: var(--font-mono); }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 12px; border-radius: 999px; font-size: 0.75rem;
+      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .tag--402 { background: var(--accent-402-dim); color: var(--accent-402); }
+    .tag--mint { background: var(--accent-mint-dim); color: var(--accent-mint); }
+    .tag--gold { background: var(--accent-gold-dim); color: var(--accent-gold); }
+
+    /* ── Topnav ── */
+    .cp-topnav { position: sticky; top: 0; z-index: 200; background: rgba(7,11,20,0.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--border-1); }
+    .cp-topnav-inner { max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 52px; padding: 0 24px; gap: 12px; }
+    .cp-topnav-logo { font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 6px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .cp-topnav-logo .claw { color: var(--accent-402); }
+    .cp-topnav-logo .purse { color: var(--text-1); }
+    .cp-topnav-sites { display: flex; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+    .cp-topnav-sites a { color: var(--text-2); font-size: 0.78rem; font-weight: 500; text-decoration: none; padding: 6px 10px; border-radius: 6px; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+    .cp-topnav-sites a:hover { color: var(--text-1); background: rgba(255,255,255,0.04); }
+    .cp-topnav-sites a.active { color: var(--accent-402); background: var(--accent-402-dim); }
+    .cp-topnav-right { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .cp-topnav-gh { color: var(--text-3); display: flex; align-items: center; transition: color 0.2s; }
+    .cp-topnav-gh:hover { color: var(--text-1); }
+    .cp-topnav-toggle { display: none; background: none; border: none; color: var(--text-2); cursor: pointer; padding: 4px; }
+    @media (max-width: 640px) {
+      .cp-topnav-inner { flex-wrap: wrap; height: auto; padding: 10px 16px; }
+      .cp-topnav-sites { display: none; width: 100%; order: 3; flex-direction: column; gap: 0; padding: 8px 0 4px; }
+      .cp-topnav-sites.open { display: flex; }
+      .cp-topnav-sites a { padding: 8px 0; border-radius: 0; font-size: 0.85rem; }
+      .cp-topnav-toggle { display: block; }
+    }
+
+    /* ── Hero ── */
+    .hero { padding: 80px 0 48px; }
+    .hero__back {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--text-3); text-decoration: none; font-size: 0.85rem;
+      margin-bottom: 28px; transition: color 0.2s;
+    }
+    .hero__back:hover { color: var(--text-2); }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 20px;
+    }
+    .hero h1 .hl-402 {
+      background: linear-gradient(135deg, var(--accent-402), #ff6a5e);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero h1 .hl-mint {
+      background: linear-gradient(135deg, var(--accent-mint), #28b893);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero__sub {
+      max-width: 700px; font-size: 1.1rem; color: var(--text-2); line-height: 1.7;
+    }
+
+    /* ── Sections ── */
+    .section { padding: 48px 0; }
+    .section__title {
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .section__desc {
+      color: var(--text-2); max-width: 700px; font-size: 1rem;
+      line-height: 1.7; margin-bottom: 32px;
+    }
+
+    /* ── Comparison table ── */
+    .cmp-wrap {
+      background: var(--bg-card); border: 1px solid var(--border-1);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+    .cmp-wrap table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    .cmp-wrap thead th {
+      padding: 16px 20px; text-align: left; font-weight: 600;
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--text-3); border-bottom: 1px solid var(--border-1);
+      background: var(--bg-elevated);
+    }
+    .cmp-wrap thead th:nth-child(2) { color: var(--accent-402); }
+    .cmp-wrap thead th:nth-child(3) { color: var(--accent-gold); }
+    .cmp-wrap tbody td {
+      padding: 14px 20px; border-bottom: 1px solid var(--border-2);
+      vertical-align: top; color: var(--text-2); line-height: 1.55;
+    }
+    .cmp-wrap tbody td:first-child {
+      font-weight: 600; color: var(--text-1); white-space: nowrap;
+      font-size: 0.85rem;
+    }
+    .cmp-wrap tbody tr:last-child td { border-bottom: none; }
+    .cmp-wrap .win { color: var(--accent-mint); font-weight: 500; }
+    .cmp-wrap .lose { color: var(--text-3); }
+    @media (max-width: 700px) {
+      .cmp-wrap { font-size: 0.82rem; }
+      .cmp-wrap thead th, .cmp-wrap tbody td { padding: 10px 12px; }
+      .cmp-wrap tbody td:first-child { white-space: normal; }
+    }
+
+    /* ── Deep-dive cards ── */
+    .deep { display: flex; flex-direction: column; gap: 24px; }
+    .dcard {
+      background: var(--bg-card); border: 1px solid var(--border-1);
+      border-radius: var(--radius-lg); padding: 32px;
+      transition: border-color 0.25s ease;
+    }
+    .dcard:hover { border-color: rgba(139,149,176,0.2); }
+    .dcard h3 {
+      font-size: 1.1rem; font-weight: 700; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .dcard h3 .icon {
+      width: 32px; height: 32px; border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.95rem; flex-shrink: 0;
+    }
+    .dcard p { color: var(--text-2); font-size: 0.92rem; line-height: 1.7; margin-bottom: 10px; }
+    .dcard p:last-child { margin-bottom: 0; }
+    .dcard strong { color: var(--text-1); font-weight: 600; }
+    .dcard .verdict {
+      margin-top: 16px; padding: 12px 16px;
+      background: rgba(50,214,168,0.06); border: 1px solid rgba(50,214,168,0.15);
+      border-radius: var(--radius-sm); font-size: 0.85rem;
+      color: var(--accent-mint); font-weight: 500;
+    }
+    .dcard .verdict--gold {
+      background: rgba(251,191,36,0.06); border-color: rgba(251,191,36,0.15);
+      color: var(--accent-gold);
+    }
+    .dcard .verdict--neutral {
+      background: rgba(139,149,176,0.06); border-color: rgba(139,149,176,0.12);
+      color: var(--text-2);
+    }
+
+    /* ── Flow diagrams ── */
+    .flow-box {
+      background: var(--bg-card); border: 1px solid var(--border-1);
+      border-radius: var(--radius-lg); padding: 24px;
+      overflow-x: auto; margin: 20px 0;
+    }
+    .flow-box pre {
+      font-family: var(--font-mono); font-size: 0.78rem;
+      line-height: 1.65; color: var(--text-2); white-space: pre; margin: 0;
+    }
+    .flow-box pre .c-402 { color: var(--accent-402); font-weight: 600; }
+    .flow-box pre .c-mint { color: var(--accent-mint); }
+    .flow-box pre .c-gold { color: var(--accent-gold); }
+    .flow-box pre .c-dim { color: var(--text-3); }
+    .flow-box__label {
+      font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-3);
+      margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* ── Bottom line ── */
+    .bottom-line {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+      margin-top: 8px;
+    }
+    .bl-card {
+      padding: 28px; border-radius: var(--radius-lg);
+    }
+    .bl-card--cp {
+      background: var(--bg-card); border: 2px solid var(--accent-402);
+      box-shadow: 0 0 40px rgba(255,59,48,0.08);
+    }
+    .bl-card--x402 {
+      background: var(--bg-card); border: 1px solid var(--border-1);
+    }
+    .bl-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+    .bl-card p { color: var(--text-2); font-size: 0.9rem; line-height: 1.65; }
+    @media (max-width: 700px) {
+      .bottom-line { grid-template-columns: 1fr; }
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 56px 24px 72px;
+      color: var(--text-3); font-size: 0.85rem;
+    }
+    footer a { color: var(--text-2); text-decoration: none; }
+    footer a:hover { color: var(--text-1); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-bottom: 16px; }
+
+    /* ── Fade-in ── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <nav class="cp-topnav" aria-label="ClawPurse ecosystem">
+    <div class="cp-topnav-inner">
+      <a href="https://clawpurse.ai" class="cp-topnav-logo"><span class="claw">Claw</span><span class="purse">Purse</span></a>
+      <button class="cp-topnav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <ul class="cp-topnav-sites">
+        <li><a href="https://clawpurse.ai" data-site="wallet">Wallet</a></li>
+        <li><a href="https://gateway.clawpurse.ai" data-site="gateway" class="active">Gateway</a></li>
+        <li><a href="https://drip.clawpurse.ai" data-site="drip">Drip</a></li>
+        <li><a href="https://basis.clawpurse.ai" data-site="basis">Basis</a></li>
+      </ul>
+      <div class="cp-topnav-right">
+        <a href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener" class="cp-topnav-gh" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="ambient"></div>
+  <div class="grain"></div>
+
+  <header class="hero container">
+    <a href="https://gateway.clawpurse.ai/hi/" class="hero__back">&larr; Gateway पर वापस जाएं</a>
+    <h1><span class="hl-402">ClawPurse Gateway</span> vs <span class="hl-mint">x402</span></h1>
+    <p class="hero__sub">
+      दोनों प्रोटोकॉल HTTP 402 Payment Required स्टेटस कोड के पीछे संसाधनों को गेट करते हैं। वे निपटान पर किसका नियंत्रण है, विश्वास कहाँ रहता है, और संचालन के लिए किस इन्फ्रास्ट्रक्चर की आवश्यकता है, इसके बारे में मौलिक रूप से अलग विकल्प बनाते हैं। यह पूर्ण तुलना है।
+    </p>
+  </header>
+
+  <main class="container">
+
+    <!-- ============ CORE DIFFERENCE ============ -->
+    <section class="section reveal">
+      <span class="tag tag--402">मूल अंतर</span>
+      <h2 class="section__title">भुगतान-फिर-प्रमाण vs हस्ताक्षर-फिर-निपटान</h2>
+      <p class="section__desc">
+        The entire architectural divide comes down to one question: does the client broadcast their own transaction, or does a third party do it for them?
+      </p>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+        <div class="flow-box">
+          <div class="flow-box__label">ClawPurse Gateway</div>
+<pre><span class="c-mint">Client</span> &rarr; GET /api/data
+<span class="c-402">Gateway</span> &larr; 402 + invoice
+<span class="c-mint">Client</span> &rarr; <span class="c-gold">broadcasts MsgSend on-chain</span>
+<span class="c-mint">Client</span> &rarr; GET /api/data + X-Payment-Proof
+<span class="c-402">Gateway</span> &rarr; verifies tx on Neutaro LCD
+<span class="c-402">Gateway</span> &larr; 200 OK (proxied)</pre>
+        </div>
+        <div class="flow-box">
+          <div class="flow-box__label">x402 (Coinbase)</div>
+<pre><span class="c-mint">Client</span> &rarr; GET /api/data
+<span class="c-gold">Server</span>  &larr; 402 + PAYMENT-REQUIRED header
+<span class="c-mint">Client</span> &rarr; <span class="c-dim">signs EIP-3009 authorization</span>
+<span class="c-mint">Client</span> &rarr; GET /api/data + PAYMENT-SIGNATURE
+<span class="c-gold">Server</span>  &rarr; POST to <span class="c-dim">Facilitator /settle</span>
+<span class="c-dim">Facilitator</span> &rarr; broadcasts tx on-chain
+<span class="c-gold">Server</span>  &larr; 200 OK + PAYMENT-RESPONSE</pre>
+        </div>
+      </div>
+      <p style="color: var(--text-3); font-size: 0.85rem; margin-top: 16px;">
+        ClawPurse: 2 parties, 0 intermediaries. x402: 3 parties, facilitator controls settlement.
+      </p>
+    </section>
+
+    <!-- ============ COMPARISON TABLE ============ -->
+    <section class="section reveal">
+      <span class="tag tag--mint">एक नज़र में</span>
+      <h2 class="section__title">फीचर-दर-फीचर तुलना</h2>
+
+      <div class="cmp-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:22%;">आयाम</th>
+              <th style="width:39%;">ClawPurse Gateway</th>
+              <th style="width:39%;">x402 (Coinbase)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Trust model</td>
+              <td class="win">Peer-to-peer. No intermediary. Gateway verifies directly on-chain.</td>
+              <td class="lose">Facilitator-dependent. Coinbase (or third-party) verifies and settles every payment.</td>
+            </tr>
+            <tr>
+              <td>Settlement</td>
+              <td class="win">Client broadcasts their own transaction. Full control, full visibility.</td>
+              <td>Client signs an authorization. Facilitator broadcasts. Client hopes it settles.</td>
+            </tr>
+            <tr>
+              <td>External dependencies</td>
+              <td class="win">Zero. Single binary + SQLite + Neutaro LCD API. Nothing else.</td>
+              <td class="lose">Facilitator service (Coinbase-hosted), EIP-3009 or Permit2 token support, SDK integration.</td>
+            </tr>
+            <tr>
+              <td>Prepaid balances</td>
+              <td class="win">Built-in. Deposit once, deduct per request. No repeated on-chain txs.</td>
+              <td class="lose">Not supported. Every request requires a fresh payment cycle.</td>
+            </tr>
+            <tr>
+              <td>Route-level pricing</td>
+              <td class="win">One env var: <code style="color:var(--accent-mint);">GATEWAY_ROUTES="/expensive/*=1.0,/cheap/*=0.001"</code></td>
+              <td>Per-endpoint middleware config with SDK.</td>
+            </tr>
+            <tr>
+              <td>Audit trail</td>
+              <td class="win">Complete local ledger in SQLite &mdash; every invoice, payment, balance change, tx hash.</td>
+              <td class="lose">Settlement records live on the facilitator. Server gets a response, not a queryable history.</td>
+            </tr>
+            <tr>
+              <td>Client requirements</td>
+              <td class="win">Any Neutaro wallet. Standard MsgSend + memo. No SDK, no signing library.</td>
+              <td class="lose">EIP-3009 or Permit2 signing (EVM), SPL authorization (Solana), XDR building (Stellar). Per-chain SDK required.</td>
+            </tr>
+            <tr>
+              <td>Deployment</td>
+              <td class="win"><code style="color:var(--accent-mint);">docker compose up -d</code> &mdash; one command, done.</td>
+              <td>Server middleware + facilitator endpoint config + SDK + wallet setup.</td>
+            </tr>
+            <tr>
+              <td>Verification speed</td>
+              <td>Waits for on-chain confirmation (seconds to minutes depending on block time).</td>
+              <td class="win">Instant cryptographic signature verification. Resource served before settlement completes.</td>
+            </tr>
+            <tr>
+              <td>Gas costs for client</td>
+              <td>Client pays gas on every MsgSend (cheap on Neutaro, but nonzero).</td>
+              <td class="win">Gasless. Facilitator pays gas. Client only signs.</td>
+            </tr>
+            <tr>
+              <td>Multi-chain</td>
+              <td>Neutaro / Cosmos SDK.</td>
+              <td class="win">EVM (Base, Ethereum, Polygon, Avalanche), Solana, Stellar, Sui, Algorand, Hedera, Aptos.</td>
+            </tr>
+            <tr>
+              <td>Ecosystem size</td>
+              <td>Neutaro / Timpi / ClawPurse ecosystem.</td>
+              <td class="win">5,400+ GitHub stars, 193 contributors, backed by Coinbase, Cloudflare, Anthropic, Circle.</td>
+            </tr>
+            <tr>
+              <td>Overpayment protection</td>
+              <td class="lose">Client controls the tx. Accidental overpayment is possible (gateway checks &ge; amount).</td>
+              <td class="win">Signed authorization specifies exact amount. Facilitator can't charge more.</td>
+            </tr>
+            <tr>
+              <td>Replay protection</td>
+              <td>Memo-based invoice matching. Works, but memos are user-controlled.</td>
+              <td class="win">Cryptographic nonces enforced at the smart contract level. Replay impossible by design.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ DEEP DIVES ============ -->
+    <section class="section reveal">
+      <span class="tag tag--402">गहन विश्लेषण</span>
+      <h2 class="section__title">जहाँ ClawPurse Gateway जीतता है</h2>
+
+      <div class="deep">
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-402-dim);">&#x1f6e1;</span> No facilitator dependency</h3>
+          <p>
+            x402 routes every payment through a <strong>facilitator</strong> &mdash; a third-party service that verifies signatures, broadcasts transactions, and controls when settlement happens. Currently, that facilitator is overwhelmingly Coinbase itself. Circle is building a competing one, but the ecosystem remains centralized around a single operator.
+          </p>
+          <p>
+            ClawPurse Gateway talks directly to the Neutaro blockchain via its public LCD API. There is no middleman who can go down, censor transactions, rate-limit your payments, or extract fees. If the chain is running, your gateway is running. <strong>Self-sovereign by architecture, not by promise.</strong>
+          </p>
+          <div class="verdict">Verdict: ClawPurse eliminates the single point of failure that x402 introduces.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-402-dim);">&#x26a1;</span> Prepaid balance accounts</h3>
+          <p>
+            An AI agent making 1,000 API calls through x402 needs 1,000 separate payment cycles &mdash; each one requiring a signed authorization, facilitator verification, and on-chain settlement. That's 1,000 blockchain transactions for 1,000 HTTP requests.
+          </p>
+          <p>
+            ClawPurse supports <strong>prepaid balance deposits</strong>. An agent deposits NTMPI once, then sends requests with an <code style="color:var(--accent-mint);">X-Client-Id</code> header. The gateway deducts per-call from the local balance. Zero additional on-chain transactions. Zero latency overhead. This is the difference between a payment protocol and a payment <em>system</em>.
+          </p>
+          <div class="verdict">Verdict: For high-frequency agents, prepaid balances are an order of magnitude more efficient.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-402-dim);">&#x1f4e6;</span> Deployment simplicity</h3>
+          <p>
+            ClawPurse Gateway is a single TypeScript process with a SQLite file. Set two env vars (<code style="color:var(--accent-mint);">GATEWAY_PAYMENT_ADDRESS</code> and <code style="color:var(--accent-mint);">JWT_SECRET</code>), run <code style="color:var(--accent-mint);">docker compose up -d</code>, and you have a production payment gateway. No external services, no SDK integration, no facilitator endpoint configuration.
+          </p>
+          <p>
+            x402 requires installing framework-specific middleware (<code style="color:var(--text-3);">@x402/express</code>, <code style="color:var(--text-3);">@x402/evm</code>, <code style="color:var(--text-3);">@x402/svm</code>), configuring a facilitator URL, setting up chain-specific wallet infrastructure, and managing SDK dependencies per target blockchain. The "one line of code" marketing becomes several hundred lines once you include the SDK, wallet, and facilitator plumbing.
+          </p>
+          <div class="verdict">Verdict: ClawPurse ships production infra in a Docker one-liner. x402 ships an SDK.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-402-dim);">&#x1f50d;</span> Full local audit trail</h3>
+          <p>
+            Every invoice, payment, balance change, and transaction hash is stored in the gateway's local SQLite database. You own the data. You can query it, export it, audit it. The <code style="color:var(--accent-mint);">payment_log</code> table records direction, route, client ID, and timestamp for every event.
+          </p>
+          <p>
+            x402's settlement records live on the facilitator's infrastructure. The server receives a <code style="color:var(--text-3);">PAYMENT-RESPONSE</code> header confirming success, but doesn't automatically maintain a queryable, auditable local history. For compliance and financial reporting &mdash; especially when combined with <a href="https://basis.clawpurse.ai" style="color:var(--accent-mint);">Basis Timpi</a> for cost basis tracking &mdash; local data sovereignty matters.
+          </p>
+          <div class="verdict">Verdict: ClawPurse gives operators a complete, local, queryable financial ledger.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-402-dim);">&#x1f513;</span> Any wallet can pay</h3>
+          <p>
+            Paying through ClawPurse Gateway requires one thing: the ability to send a standard Cosmos SDK <code style="color:var(--accent-mint);">MsgSend</code> with a memo field. That's every Neutaro wallet that exists &mdash; Keplr, Leap, the ClawPurse CLI, or a raw REST call. No special signing library, no chain-specific SDK, no EIP-3009 knowledge.
+          </p>
+          <p>
+            x402 clients need to understand EIP-3009 <code style="color:var(--text-3);">transferWithAuthorization</code> signing on EVM, or Permit2 witness patterns, or SPL token authorization on Solana, or XDR transaction building on Stellar. Each chain has its own complex client-side integration that requires a dedicated SDK.
+          </p>
+          <div class="verdict">Verdict: ClawPurse works with wallets people already have. x402 requires per-chain SDK integration.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHERE x402 WINS ============ -->
+    <section class="section reveal">
+      <h2 class="section__title">जहाँ x402 जीतता है</h2>
+      <p class="section__desc">
+        We're not here to pretend the comparison is one-sided. x402 has genuine architectural advantages in specific scenarios.
+      </p>
+
+      <div class="deep">
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-gold-dim);">&#x23f1;</span> Instant verification</h3>
+          <p>
+            x402's facilitator verifies a cryptographic signature, not an on-chain transaction. Verification is instantaneous &mdash; the resource can be served before settlement even completes. ClawPurse waits for actual block confirmation, which introduces latency depending on Neutaro's block time and the operator's confirmation requirement.
+          </p>
+          <div class="verdict verdict--gold">Verdict: x402 is faster for latency-sensitive single requests.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-gold-dim);">&#x26fd;</span> Gasless client experience</h3>
+          <p>
+            x402 clients never pay gas. The facilitator broadcasts the transaction and absorbs gas costs. ClawPurse clients pay gas on every <code style="color:var(--accent-mint);">MsgSend</code>. On Neutaro the cost is negligible, but it's still an extra balance the client must maintain.
+          </p>
+          <div class="verdict verdict--gold">Verdict: x402's gasless UX is smoother for clients that don't want to manage gas.</div>
+        </div>
+
+        <div class="dcard">
+          <h3><span class="icon" style="background:var(--accent-gold-dim);">&#x1f30d;</span> Multi-chain ecosystem</h3>
+          <p>
+            x402 supports 8+ blockchains today with active PRs adding more. A single x402 client can pay on whichever chain the server accepts. ClawPurse is purpose-built for Neutaro. If your use case requires multi-chain payment optionality from day one, x402 has broader reach.
+          </p>
+          <div class="verdict verdict--gold">Verdict: x402 wins on chain breadth. ClawPurse wins on chain depth (Neutaro-native, zero abstraction).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BOTTOM LINE ============ -->
+    <section class="section reveal">
+      <span class="tag tag--gold">निष्कर्ष</span>
+      <h2 class="section__title">अपना आर्किटेक्चर चुनें</h2>
+
+      <div class="bottom-line">
+        <div class="bl-card bl-card--cp">
+          <h3 style="color: var(--accent-402);">ClawPurse Gateway चुनें अगर&hellip;</h3>
+          <p>
+            You want zero third-party dependencies, peer-to-peer settlement with no facilitator, a single Docker command to deploy, prepaid balance accounts for high-frequency agents, a full local audit trail, and the simplicity of "any wallet can pay." You're building on Neutaro and the Timpi ecosystem, and you want self-sovereign infrastructure you control end-to-end.
+          </p>
+        </div>
+        <div class="bl-card bl-card--x402">
+          <h3 style="color: var(--accent-gold);">x402 चुनें अगर&hellip;</h3>
+          <p>
+            You need instant signature-based verification, gasless client experience, multi-chain payment flexibility across EVM/Solana/Stellar, and broad ecosystem compatibility with Coinbase-backed tooling. You're building for AI agents that need to autonomously discover and pay for services across many different blockchains.
+          </p>
+        </div>
+      </div>
+
+      <p style="color: var(--text-2); font-size: 0.95rem; margin-top: 28px; max-width: 700px; line-height: 1.7;">
+        They're not mutually exclusive. The most powerful architecture may be a gateway that speaks <em>both</em> protocols &mdash; ClawPurse's native flow for Neutaro-native clients and x402's header format for interoperable agents. That's where we're headed.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <nav aria-label="External links">
+      <div class="footer-links">
+        <a href="https://gateway.clawpurse.ai/hi/">Gateway होम</a>
+        <a href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener">Gateway Repo</a>
+        <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener">Wallet Repo</a>
+        <a href="https://basis.clawpurse.ai" target="_blank" rel="noopener">Basis Timpi</a>
+        <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener">Timpi Drip</a>
+        <a href="https://x402.org" target="_blank" rel="noopener">x402.org</a>
+        <a href="https://github.com/coinbase/x402" target="_blank" rel="noopener">x402 Repo</a>
+      </div>
+    </nav>
+    <p>Maintained by the Mhue family &bull; ClawPurse Gateway v0.2.0 &bull; MIT License</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>

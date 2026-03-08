@@ -121,4 +121,82 @@
     <xhtml:link rel="alternate" hreflang="id" href="https://gateway.clawpurse.ai/id/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/" />
   </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gateway.clawpurse.ai/ja/compare/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gateway.clawpurse.ai/ko/compare/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gateway.clawpurse.ai/es/compare/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gateway.clawpurse.ai/fr/compare/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://gateway.clawpurse.ai/hi/compare/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gateway.clawpurse.ai/zh/compare/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://gateway.clawpurse.ai/id/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/ja/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="ja" href="https://gateway.clawpurse.ai/ja/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/ko/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://gateway.clawpurse.ai/ko/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/es/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://gateway.clawpurse.ai/es/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/fr/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gateway.clawpurse.ai/fr/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/hi/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="hi" href="https://gateway.clawpurse.ai/hi/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/zh/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="zh" href="https://gateway.clawpurse.ai/zh/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
+  <url>
+    <loc>https://gateway.clawpurse.ai/id/compare/</loc>
+    <lastmod>2026-03-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/compare/" />
+    <xhtml:link rel="alternate" hreflang="id" href="https://gateway.clawpurse.ai/id/compare/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/compare/" />
+  </url>
 </urlset>

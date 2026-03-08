@@ -865,9 +865,10 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
         <div class="eco-card" style="border-color: rgba(251,191,36,0.25);">
           <h3>x402 Payment Protocol</h3>
           <p>
-            The open internet-native payment standard by Coinbase. ClawPurse Gateway implements the same HTTP 402 pattern &mdash; x402 formalises it across chains with USDC, AI agents, and facilitator infrastructure.
+            Coinbase's open HTTP 402 standard routes every payment through a centralized facilitator that controls settlement. ClawPurse Gateway takes the opposite approach: peer-to-peer payments verified directly on Neutaro &mdash; no middleman, no EVM lock-in, no Coinbase SDK. Add prepaid balances for zero-latency repeat access, route-level pricing in one env var, and a full audit trail in SQLite. One Docker command to deploy; zero external dependencies to operate.
           </p>
-          <p style="margin-top:12px;"><a href="https://x402.org" target="_blank" rel="noopener">x402.org &rarr;</a></p>
+          <p style="margin-top:12px;"><a href="/compare/">Full comparison &rarr;</a></p>
+          <p style="margin-top:4px;"><a href="https://x402.org" target="_blank" rel="noopener">x402.org &rarr;</a></p>
           <p style="margin-top:4px;"><a href="https://github.com/coinbase/x402" target="_blank" rel="noopener">github.com/coinbase/x402 &rarr;</a></p>
         </div>
       </div>
