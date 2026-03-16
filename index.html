@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ClawPurse Gateway — HTTP 402 Payment Required Micropayment Gateway for AI Agents & APIs</title>
-  <meta name="description" content="Open-source HTTP 402 Payment Required reverse proxy that gates any API behind NTMPI blockchain micropayments. Pay-per-request and prepaid balance flows for agentic AI, machine-to-machine commerce, and DePIN automation on Neutaro.">
-  <meta name="keywords" content="HTTP 402, Payment Required, micropayment gateway, API monetization, pay-per-request, NTMPI, Neutaro, blockchain payments, agentic AI, machine-to-machine payments, DePIN, x402 protocol, AI agent commerce, reverse proxy, ClawPurse, Timpi, crypto micropayments, API paywall, on-chain verification">
+  <title>ClawPurse x402 Gateway — HTTP 402 Micropayment Gateway for AI Agents & Agentic Wallets</title>
+  <meta name="description" content="ClawPurse x402 Gateway — an x402-compatible open-source HTTP 402 reverse proxy that gates any API behind NTMPI micropayments on Neutaro. Pay-per-request and prepaid balance flows for agentic AI wallets, machine-to-machine commerce, and DePIN operators.">
+  <meta name="keywords" content="x402, x402 protocol, x402 Cosmos, HTTP 402, Payment Required, micropayment gateway, API monetization, pay-per-request, NTMPI, Neutaro, agentic wallet, agentic AI, AI agent payments, machine-to-machine payments, DePIN micropayments, reverse proxy, ClawPurse, Timpi, crypto micropayments, API paywall, on-chain verification, agentic finance">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://gateway.clawpurse.ai/">
   <link rel="alternate" hreflang="en" href="https://gateway.clawpurse.ai/" />
@@ -17,8 +17,8 @@
   <link rel="alternate" hreflang="zh" href="https://gateway.clawpurse.ai/zh/" />
   <link rel="alternate" hreflang="id" href="https://gateway.clawpurse.ai/id/" />
   <link rel="alternate" hreflang="x-default" href="https://gateway.clawpurse.ai/" />
-  <meta property="og:title" content="ClawPurse Gateway — HTTP 402 Micropayment Gateway for AI Agents">
-  <meta property="og:description" content="Open-source reverse proxy gating any API behind on-chain NTMPI micropayments. Pay-per-request and prepaid balance flows for AI agents, scripts, and machine-to-machine workloads on Neutaro.">
+  <meta property="og:title" content="ClawPurse x402 Gateway — HTTP 402 Micropayment Gateway for AI Agents">
+  <meta property="og:description" content="x402-compatible reverse proxy gating any API behind on-chain NTMPI micropayments. Pay-per-request and prepaid balance flows for agentic wallets, AI agents, and machine-to-machine commerce on Neutaro.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://gateway.clawpurse.ai/">
   <meta property="og:site_name" content="ClawPurse Gateway">
@@ -375,7 +375,15 @@
         "name": "What is ClawPurse Gateway?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ClawPurse Gateway is an open-source HTTP reverse proxy that implements the 402 Payment Required status code to gate any API behind NTMPI micropayments on the Neutaro blockchain. It supports pay-per-request and prepaid balance flows for AI agents, automation scripts, and machine-to-machine commerce."
+          "text": "ClawPurse Gateway is an x402-compatible open-source HTTP reverse proxy that implements the 402 Payment Required status code to gate any API behind NTMPI micropayments on the Neutaro blockchain. It supports pay-per-request and prepaid balance flows for AI agents, agentic wallets, and machine-to-machine commerce."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does ClawPurse Gateway relate to x402?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "x402 is an open payment protocol, initially developed by Coinbase, that standardizes HTTP 402 Payment Required for web-native micropayments. ClawPurse Gateway implements the same pattern — 402 invoice, on-chain payment, retry with proof — but on the Neutaro (Cosmos SDK) blockchain instead of EVM chains. This makes ClawPurse the x402 implementation for the Cosmos ecosystem."
         }
       },
       {
@@ -391,7 +399,15 @@
         "name": "What is NTMPI and how do I get it?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "NTMPI is the native token of the Neutaro blockchain, part of the Timpi decentralised search network. You can acquire NTMPI on the MEXC exchange via the NTMPI/USDT spot pair, or bridge through Gravity Bridge to Osmosis and swap for NTMPI using Keplr or Leap wallet."
+          "text": "NTMPI is the native token of the Neutaro blockchain, part of the Timpi decentralised search network. You can get free NTMPI from the Timpi Drip faucet at drip.clawpurse.ai, acquire it on MEXC via the NTMPI/USDT spot pair, or use the ClawPurse Get portal at get.clawpurse.ai for one-click access to Uniswap, MEXC, and OraiDEX."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the gateway hold my funds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. ClawPurse Gateway is fully non-custodial. It verifies payments by querying the Neutaro REST API directly. The gateway never touches funds, holds keys, or acts as an intermediary. You self-host the gateway on your own infrastructure."
         }
       },
       {
@@ -399,7 +415,7 @@
         "name": "Can AI agents use ClawPurse Gateway autonomously?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. ClawPurse Gateway is designed for agentic AI and machine-to-machine workloads. AI agents can programmatically handle the 402 flow by parsing the invoice, paying on-chain via the ClawPurse wallet API, and retrying with the payment proof header — all without human intervention."
+          "text": "Yes. ClawPurse Gateway is designed for agentic AI and machine-to-machine workloads. AI agents can programmatically handle the x402 flow by parsing the invoice, paying on-chain via the ClawPurse agentic wallet API, and retrying with the payment proof header — all without human intervention."
         }
       }
     ]
@@ -420,9 +436,9 @@
       <span class="dot" aria-hidden="true"></span>
       v0.2.0 — open source on GitHub
     </div>
-    <h1>ClawPurse<br><span class="hl-402">402 Gateway</span></h1>
+    <h1>ClawPurse<br><span class="hl-402">x402 Gateway</span></h1>
     <p class="hero__sub">
-      An HTTP reverse proxy that gates any API behind <strong>NTMPI micropayments</strong> on the Neutaro blockchain. Pay-per-request and prepaid balance flows for AI&nbsp;agents, automation scripts, and machine&#8209;to&#8209;machine commerce.
+      An x402-compatible HTTP reverse proxy that gates any API behind <strong>NTMPI micropayments</strong> on the Neutaro blockchain. Pay-per-request and prepaid balance flows for agentic AI&nbsp;wallets, automation scripts, and machine&#8209;to&#8209;machine commerce.
     </p>
     <nav class="hero__actions" aria-label="Primary actions">
       <a class="btn btn--primary" href="https://github.com/mhue-ai/clawpurse-gateway" target="_blank" rel="noopener">
@@ -485,7 +501,7 @@
     <!-- ============ FEATURES ============ -->
     <section class="section reveal" id="features">
       <span class="tag tag--mint">Capabilities</span>
-      <h2 class="section__title">Built for AI agents and machine-to-machine commerce</h2>
+      <h2 class="section__title">Built for agentic AI and the machine-native economy</h2>
       <p class="section__desc">
         Everything a machine-to-machine micropayment layer needs, nothing it doesn't.
       </p>
@@ -833,7 +849,11 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
       <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px;">
         <div class="fcard">
           <h3>What is ClawPurse Gateway?</h3>
-          <p>An open-source HTTP reverse proxy that implements the <strong>402 Payment Required</strong> status code to gate any API behind NTMPI micropayments on the Neutaro blockchain. It supports pay-per-request and prepaid balance flows for AI agents, automation scripts, and machine-to-machine commerce.</p>
+          <p>An x402-compatible open-source HTTP reverse proxy that implements the <strong>402 Payment Required</strong> status code to gate any API behind NTMPI micropayments on the Neutaro blockchain. It supports pay-per-request and prepaid balance flows for AI agents, agentic wallets, and machine-to-machine commerce.</p>
+        </div>
+        <div class="fcard">
+          <h3>How does ClawPurse Gateway relate to x402?</h3>
+          <p>x402 is an open payment protocol, initially developed by Coinbase, that standardizes HTTP 402 Payment Required for web-native micropayments. ClawPurse Gateway implements the same pattern — 402 invoice → on-chain payment → retry with proof — but on the Neutaro (Cosmos SDK) blockchain instead of EVM chains. This makes ClawPurse the x402 implementation for the Cosmos ecosystem. <a href="https://clawpurse.ai/x402/" style="color:var(--accent-mint); text-decoration:none;">Learn more →</a></p>
         </div>
         <div class="fcard">
           <h3>How does the HTTP 402 payment flow work?</h3>
@@ -841,11 +861,15 @@ curl -H <span class="str">"X-Payment-Proof: &lt;invoiceId&gt;"</span> \
         </div>
         <div class="fcard">
           <h3>What is NTMPI and how do I get it?</h3>
-          <p>NTMPI is the native token of the Neutaro blockchain, part of the <a href="https://timpi.io" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi</a> decentralised search network. You can get free NTMPI from the <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi Drip Faucet</a>, acquire it on <a href="https://www.mexc.com/exchange/NTMPI_USDT" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">MEXC</a> via the NTMPI/USDT spot pair, or bridge through Gravity Bridge to Osmosis and swap using Keplr or Leap wallet.</p>
+          <p>NTMPI is the native token of the Neutaro blockchain, part of the <a href="https://timpi.io" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi</a> decentralised search network. You can get free NTMPI from the <a href="https://drip.clawpurse.ai" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">Timpi Drip Faucet</a>, acquire it on <a href="https://www.mexc.com/exchange/NTMPI_USDT" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">MEXC</a> via the NTMPI/USDT spot pair, or use the <a href="https://get.clawpurse.ai" style="color:var(--accent-mint); text-decoration:none;">ClawPurse Get portal</a> for one-click access to Uniswap, MEXC, and OraiDEX.</p>
+        </div>
+        <div class="fcard">
+          <h3>Does the gateway hold my funds?</h3>
+          <p>No. ClawPurse Gateway is fully non-custodial. It verifies payments by querying the Neutaro REST API directly — the gateway never touches funds, holds keys, or acts as an intermediary. You self-host the gateway on your own infrastructure.</p>
         </div>
         <div class="fcard">
           <h3>Can AI agents use ClawPurse Gateway autonomously?</h3>
-          <p>Yes. The gateway is designed for agentic AI and machine-to-machine workloads. Agents can programmatically parse the 402 invoice, pay on-chain via the <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">ClawPurse wallet API</a>, and retry with the payment proof header — all without human intervention.</p>
+          <p>Yes. The gateway is designed for agentic AI and machine-to-machine workloads. Agents can programmatically parse the x402 invoice, pay on-chain via the <a href="https://github.com/mhue-ai/ClawPurse" target="_blank" rel="noopener" style="color:var(--accent-mint); text-decoration:none;">ClawPurse agentic wallet API</a>, and retry with the payment proof header — all without human intervention.</p>
         </div>
       </div>
     </section>
